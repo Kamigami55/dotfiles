@@ -87,3 +87,4 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias rake="noglob bundle exec rake"
+alias 'cd..'="cd .."
