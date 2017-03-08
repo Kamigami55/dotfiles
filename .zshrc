@@ -88,3 +88,4 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias rake="noglob bundle exec rake"
 alias 'cd..'="cd .."
+alias 'ta'="tmux attach"
