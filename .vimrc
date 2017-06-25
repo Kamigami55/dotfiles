@@ -8,6 +8,7 @@ set cursorline
 set cursorcolumn
 
 set shiftwidth=4
+set tabstop=4
 set expandtab
 set autoindent
 filetype indent on
