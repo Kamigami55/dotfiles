@@ -16,3 +16,8 @@ highlight CursorLineNr cterm=bold ctermfg=Yellow ctermbg=088 gui=NONE guifg=Yell
 highlight CursorLine   cterm=bold ctermbg=234 ctermfg=NONE guibg=NONE guifg=white
 highlight CursorColumn cterm=bold ctermbg=234 ctermfg=NONE guibg=NONE guifg=white 
 
+" Encoding for chinese
+set encoding=utf8
+set fileencodings=utf8,big5,gbk,latin1
+set fileencoding=big5
+
