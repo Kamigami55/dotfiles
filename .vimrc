@@ -21,3 +21,4 @@ set encoding=utf8
 set fileencodings=utf8,big5,gbk,latin1
 set fileencoding=big5
 
+nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
