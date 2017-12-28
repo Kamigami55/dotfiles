@@ -54,7 +54,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git, pyenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -89,3 +89,9 @@ source $ZSH/oh-my-zsh.sh
 alias rake="noglob bundle exec rake"
 alias 'cd..'="cd .."
 alias 'ta'="tmux attach"
+
+# python virtualenv configuration
+export WORKON_HOME=~/Envs
+export PIP_REQUIRE_VIRTUALENV=true
+source /usr/local/bin/virtualenvwrapper.sh
+
