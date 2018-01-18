@@ -17,7 +17,7 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
-HYPHEN_INSENSITIVE="true"
+#HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -91,7 +91,15 @@ alias 'cd..'="cd .."
 alias 'ta'="tmux attach"
 
 # python virtualenv configuration
-export WORKON_HOME=~/Envs
-export PIP_REQUIRE_VIRTUALENV=true
-source /usr/local/bin/virtualenvwrapper.sh
+#export WORKON_HOME=~/Envs
+#export PIP_REQUIRE_VIRTUALENV=true
+#source /usr/local/bin/virtualenvwrapper.sh
+
+# pyenv configuration
+PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+# rbenv configuration
+eval "$(rbenv init -)"
 
