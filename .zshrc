@@ -89,6 +89,7 @@ source $ZSH/oh-my-zsh.sh
 alias rake="noglob bundle exec rake"
 alias 'cd..'="cd .."
 alias 'ta'="tmux attach"
+alias 'dcc'="docker-compose"
 
 # python virtualenv configuration
 #export WORKON_HOME=~/Envs
@@ -101,5 +102,8 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # rbenv configuration
-eval "$(rbenv init -)"
+#eval "$(rbenv init -)"
 
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
