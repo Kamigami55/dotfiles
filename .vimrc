@@ -25,6 +25,12 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-sensible'
 Plugin 'scrooloose/nerdtree'
 
+" Tab auto complete
+Plugin 'ervandew/supertab'
+
+" Python auto complete
+Plugin 'davidhalter/jedi-vim'
+
 call vundle#end()            
 filetype plugin indent on
 " End Vundle
