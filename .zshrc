@@ -16,6 +16,8 @@ antigen bundle tmux
 antigen bundle colored-man-pages
 antigen bundle colorize
 antigen bundle dirhistory
+antigen bundle autojump
+antigen bundle common-aliases
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
