@@ -1,4 +1,4 @@
-source $HOME/unix-settings/antigen.zsh
+source $HOME/dotfiles/antigen.zsh
 
 
 # Load the oh-my-zsh's library.

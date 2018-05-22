@@ -28,6 +28,11 @@ if [ -e .vimrc ]; then
 fi
 ln -s ~/dotfiles/.vimrc .vimrc
 
+if [ -e .vim ]; then
+	mv .vim .vim-old
+fi
+ln -s ~/dotfiles/.vim .vim
+
 if [ -e .gitconfig ]; then
 	mv .gitconfig .gitconfig-old
 fi
