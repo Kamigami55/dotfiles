@@ -26,25 +26,25 @@ cd ~/
 if [ -e .vimrc ]; then
 	mv .vimrc .vimrc-old
 fi
-ln -s ~/unix-settings/.vimrc .vimrc
+ln -s ~/dotfiles/.vimrc .vimrc
 
 if [ -e .gitconfig ]; then
 	mv .gitconfig .gitconfig-old
 fi
-ln -s ~/unix-settings/.gitconfig .gitconfig
+ln -s ~/dotfiles/.gitconfig .gitconfig
 
 if [ -e .tmux.conf ]; then
 	mv .tmux.conf .tmux.conf-old
 fi
-ln -s ~/unix-settings/.tmux.conf .tmux.conf
+ln -s ~/dotfiles/.tmux.conf .tmux.conf
 
 if [ -e .tmux ]; then
 	mv .tmux .tmux-old
 fi
-ln -s ~/unix-settings/.tmux .tmux
+ln -s ~/dotfiles/.tmux .tmux
 
 if [ -e .zshrc ]; then
 	mv .zshrc .zshrc-old
 fi
-ln -s ~/unix-settings/.zshrc .zshrc
+ln -s ~/dotfiles/.zshrc .zshrc
 
