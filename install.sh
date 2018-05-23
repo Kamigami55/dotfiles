@@ -53,3 +53,11 @@ if [ -e .zshrc ]; then
 fi
 ln -s ~/dotfiles/.zshrc .zshrc
 
+
+if [ -e .zshrc.local ]; then
+	mv .zshrc.local .zshrc.local-old
+fi
+ln -s $HOME/dotfiles/.zshrc.local $HOME/.zshrc.local
+
+
+
