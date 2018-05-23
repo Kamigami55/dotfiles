@@ -24,6 +24,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-sensible'
 Plugin 'scrooloose/nerdtree'
+Plugin 'danro/rename.vim'
 
 " Tab auto complete
 Plugin 'ervandew/supertab'
