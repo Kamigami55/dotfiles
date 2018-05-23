@@ -11,6 +11,8 @@ containsElement () {
 
 source $HOME/dotfiles/antigen.zsh
 
+# raspbian gcc toolchain for cross compile
+# export PATH=$PATH:~/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -66,11 +68,9 @@ alias rake="noglob bundle exec rake"
 alias "cd.."="cd .."
 alias "dcc"="docker-compose"
 
-
 # Active rbenv if needed
 if containsElement "rbenv" "${pkgs[@]}"; then
   export PATH="$HOME/.rbenv/bin:$PATH"
   export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
   eval "$(rbenv init -)"
 fi
-
