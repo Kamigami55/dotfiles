@@ -1,4 +1,4 @@
-source $HOME/unix-settings/antigen.zsh
+source $HOME/dotfiles/antigen.zsh
 
 # raspbian gcc toolchain for cross compile
 # export PATH=$PATH:~/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin
