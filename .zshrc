@@ -1,3 +1,14 @@
+# .zshrc
+
+# Helper functions
+containsElement () {
+  local e match="$1"
+  shift
+  for e; do [[ "$e" == "$match" ]] && return 0; done
+  return 1
+}
+
+
 source $HOME/dotfiles/antigen.zsh
 
 
@@ -23,6 +34,12 @@ antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 
+pkgs=("")
+
+# Load zshrc local machine settings
+[ -f .zshrc.local ] && source .zshrc.local
+
+
 # Load the theme.
 BULLETTRAIN_PROMPT_ORDER=(
   context
@@ -30,9 +47,15 @@ BULLETTRAIN_PROMPT_ORDER=(
   git
 	status
 )
-BULLETTRAIN_CONTEXT_BG=red
+
+if (( ${+CONTEXT_BG_COLOR} )); then
+  BULLETTRAIN_CONTEXT_BG=$CONTEXT_BG_COLOR
+else
+  BULLETTRAIN_CONTEXT_BG=red
+fi
 
 antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
+
 
 # Tell Antigen that you're done.
 antigen apply
@@ -44,5 +67,10 @@ alias "cd.."="cd .."
 alias "dcc"="docker-compose"
 
 
-
+# Active rbenv if needed
+if containsElement "rbenv" "${pkgs[@]}"; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
 
