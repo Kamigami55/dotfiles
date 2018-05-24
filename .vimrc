@@ -25,6 +25,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-sensible'
 Plugin 'scrooloose/nerdtree'
 Plugin 'danro/rename.vim'
+Plugin 'scrooloose/nerdcommenter'
 
 " Tab auto complete
 Plugin 'ervandew/supertab'
@@ -37,6 +38,7 @@ filetype plugin indent on
 " End Vundle
 
 
+let mapleader=","
 
 syntax on
 
