@@ -36,7 +36,9 @@ antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 
+# Default config value
 pkgs=("")
+export TMUX_THEME='powerline/block/orange'
 
 # Load zshrc local machine settings
 [ -f .zshrc.local ] && source .zshrc.local
