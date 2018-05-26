@@ -1,7 +1,6 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-
 " Auto install Vundle
 let iCanHazVundle=1
 let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
@@ -13,25 +12,22 @@ if !filereadable(vundle_readme)
   let iCanHazVundle=0
 endif
 
-
 " Init Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
-" My plugins
+" ========== My plugins ==========
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-sensible'
-Plugin 'scrooloose/nerdtree'
-Plugin 'danro/rename.vim'
-Plugin 'scrooloose/nerdcommenter'
-
-" Tab auto complete
-Plugin 'ervandew/supertab'
-
-" Python auto complete
-Plugin 'davidhalter/jedi-vim'
+Plugin 'scrooloose/nerdtree' " File system navigation
+Plugin 'danro/rename.vim' " Rename file
+Plugin 'scrooloose/nerdcommenter' " Comment out code
+Plugin 'Yggdroot/indentLine' " Show indent level
+Plugin 'jiangmiao/auto-pairs' " Auto insert parens pair
+Plugin 'ervandew/supertab' " Tab auto complete
+Plugin 'davidhalter/jedi-vim' " Python auto complete
 
 call vundle#end()            
 filetype plugin indent on
@@ -53,6 +49,8 @@ set number
 set cursorline
 set cursorcolumn
 set t_Co=256
+
+set list lcs=tab:\|\  " show tab character
 
 highlight Comment ctermfg=033
 
