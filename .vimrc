@@ -74,6 +74,10 @@ set cursorcolumn
 highlight CursorLine   cterm=None ctermbg=234 ctermfg=NONE guibg=NONE guifg=White
 highlight CursorColumn cterm=None ctermbg=234 ctermfg=NONE guibg=NONE guifg=White
 
+" Show ruler at column 80, and every line after 120
+let &colorcolumn="80,".join(range(120,999),",")
+highlight ColorColumn ctermbg=234 guibg=lightgrey
+
 " ---------- File encoding ----------
 
 " Encoding for chinese
@@ -89,6 +93,7 @@ nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
 " <F4>: Toggle line number display
 map <F4> : set nu!<BAR>set nonu?<CR>
 
+" ---------- File format ----------
 
 " syntax highlight for .ejs as .html
 au BufNewFile,BufRead *.ejs set filetype=html
