@@ -10,6 +10,7 @@ My unix config files :heart:
 ## Install
 
 ```
+cd ~
 git clone https://github.com/Kamigami55/dotfiles/
 cd dotfiles
 ./install.sh
@@ -47,3 +48,12 @@ chsh -s /usr/bin/zsh
 建議只在全新的環境安裝我的這些dotfiles
 
 有空再來讓這些變自動化
+
+## Uninstall
+
+**uninstall.sh** 會刪除所有 **install.sh** 建立的 soft links
+
+```
+cd ~/dotfiles
+./uninstall.sh
+```
