@@ -11,6 +11,16 @@
 # ##########
 
 
+# Import configurations from config.sh
+source config.sh
+
+# Decode linkFiles array from config.sh (HACK)
+oIFS=$IFS
+IFS=$array_separator
+linkFiles=( $linkFilesArray )
+IFS=$oIFS
+
+
 # Install zsh and oh-my-zsh if not installed
 if [ $(dpkg-query -W -f='${Status}' zsh 2>/dev/null | grep -c "ok installed") == 0 ]
 then
@@ -31,16 +41,7 @@ then
 fi
 
 
-source config.sh
-
-# Decode linkFiles array HACK
-oIFS=$IFS
-IFS=$array_separator
-linkFiles=( $linkFilesArray )
-IFS=$oIFS
-
-
-# Create file links
+# Create soft links to dotfiles
 for file in "${linkFiles[@]}"
 do
   target="$HOME/$file"
@@ -62,4 +63,6 @@ do
   ln -s "$HOME/$confDir/$file" $target
   echo "Create soft link: '$target'"
 done
+
+echo "Succesfully install dotfiles"
 
