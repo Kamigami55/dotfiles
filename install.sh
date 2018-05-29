@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# ##########
+# install.sh
+#
+# Install my dotfiles
+#
+# It will do the following things:
+# - Install packages
+# - Create soft links to my dotfiles
+# ##########
+
 
 # Install zsh and oh-my-zsh if not installed
 if [ $(dpkg-query -W -f='${Status}' zsh 2>/dev/null | grep -c "ok installed") == 0 ]
@@ -21,43 +31,35 @@ then
 fi
 
 
+source config.sh
+
+# Decode linkFiles array HACK
+oIFS=$IFS
+IFS=$array_separator
+linkFiles=( $linkFilesArray )
+IFS=$oIFS
+
+
 # Create file links
-cd ~/
-if [ -e .vimrc ]; then
-	mv .vimrc .vimrc-old
-fi
-ln -s ~/dotfiles/.vimrc .vimrc
-
-if [ -e .vim ]; then
-	mv .vim .vim-old
-fi
-ln -s ~/dotfiles/.vim .vim
-
-if [ -e .gitconfig ]; then
-	mv .gitconfig .gitconfig-old
-fi
-ln -s ~/dotfiles/.gitconfig .gitconfig
-
-if [ -e .tmux.conf ]; then
-	mv .tmux.conf .tmux.conf-old
-fi
-ln -s ~/dotfiles/.tmux.conf .tmux.conf
-
-if [ -e .tmux ]; then
-	mv .tmux .tmux-old
-fi
-ln -s ~/dotfiles/.tmux .tmux
-
-if [ -e .zshrc ]; then
-	mv .zshrc .zshrc-old
-fi
-ln -s ~/dotfiles/.zshrc .zshrc
-
-
-if [ -e .zshrc.local ]; then
-	mv .zshrc.local .zshrc.local-old
-fi
-ln -s $HOME/dotfiles/.zshrc.local $HOME/.zshrc.local
-
-
+for file in "${linkFiles[@]}"
+do
+  target="$HOME/$file"
+  if [ -e $target ]; then
+    # old file exist, ask to rename old file to .old and continue
+    echo -n "'$target' exist, rename old one to '$file.old' and continue(Y/n)? "
+    read answer
+    if [ "$answer" != "${answer#[Nn]}"  ] ;then
+      # No, leave the old file
+      echo "Keep the old '$file'"
+      continue
+    else
+      # (default) Yes, rename old one
+      mv $target "$target.old"
+      echo "Rename '$file' to '$file.old'"
+    fi
+  fi
+  # create new link
+  ln -s "$HOME/$confDir/$file" $target
+  echo "Create soft link: '$target'"
+done
 
