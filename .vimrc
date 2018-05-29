@@ -28,6 +28,8 @@ Plugin 'Yggdroot/indentLine' " Show indent level
 Plugin 'jiangmiao/auto-pairs' " Auto insert parens pair
 Plugin 'ervandew/supertab' " Tab auto complete
 Plugin 'davidhalter/jedi-vim' " Python auto complete
+Plugin 'rizzatti/dash.vim' " Dash API browser integration (only for MAC)
+
 
 call vundle#end()            
 filetype plugin indent on
