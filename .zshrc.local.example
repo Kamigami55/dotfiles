@@ -1,0 +1,8 @@
+# .zshrc.local.example
+#
+# Example file of .zshrc.local
+# Store my configs differ from each local machine
+
+export CONTEXT_BG_COLOR=cyan
+export pkgs=("rbenv")
+export TMUX_THEME='powerline/double/cyan'
