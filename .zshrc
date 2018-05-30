@@ -1,6 +1,10 @@
 # .zshrc
 
+# ===============
 # Helper functions
+# ===============
+
+# Check whether a element is in a array
 containsElement () {
   local e match="$1"
   shift
@@ -9,15 +13,16 @@ containsElement () {
 }
 
 
-source $HOME/dotfiles/antigen.zsh
+# ===============
+# Use antigen to manage zsh plugins
+# ===============
 
-# raspbian gcc toolchain for cross compile
-# export PATH=$PATH:~/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin
+source $HOME/dotfiles/antigen.zsh
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
-# Bundles
+# My Bundles
 antigen bundle git
 antigen bundle pip
 antigen bundle pyenv
@@ -36,15 +41,24 @@ antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 
-# Default config value
+
+# ===============
+# Load local configs from .zshrc.local
+# ===============
+
+# Default config values (may be changed when local .zshrc.local)
 pkgs=("")
 export TMUX_THEME='powerline/block/orange'
 
-# Load zshrc local machine settings
+# Load local machine settings from .zshrc.local 
 [ -f .zshrc.local ] && source .zshrc.local
 
 
-# Load the theme.
+# ===============
+# Appearence (User Interface)
+# ===============
+
+# Set prompt order of bullet-train theme
 BULLETTRAIN_PROMPT_ORDER=(
   context
   dir
@@ -52,27 +66,36 @@ BULLETTRAIN_PROMPT_ORDER=(
 	status
 )
 
+# Set prompt comtext background color (config in .zshrc.local, default is Red)
 if (( ${+CONTEXT_BG_COLOR} )); then
   BULLETTRAIN_CONTEXT_BG=$CONTEXT_BG_COLOR
 else
   BULLETTRAIN_CONTEXT_BG=red
 fi
 
+# Use theme: bullet-train
 antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-train
 
-
-# Tell Antigen that you're done.
-antigen apply
-
-
+# ===============
 # User aliases
+# ===============
+
 alias rake="noglob bundle exec rake"
 alias "cd.."="cd .."
 alias "dcc"="docker-compose"
 
-# Active rbenv if needed
+
+# ===============
+# Active some modules
+# ===============
+
+# Active rbenv if needed (config in .zshrc.local)
 if containsElement "rbenv" "${pkgs[@]}"; then
   export PATH="$HOME/.rbenv/bin:$PATH"
   export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
   eval "$(rbenv init -)"
 fi
+
+
+# Apply all Antigen settings (should be places in the very bottom of .zshrc)
+antigen apply
