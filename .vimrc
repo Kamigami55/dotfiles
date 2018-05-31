@@ -83,6 +83,9 @@ filetype plugin indent on
 
 " ---------- General settings ----------
 
+" Share clipboard with Mac
+set clipboard=unnamed
+
 " Auto set paste when pasting something
 " also work with tmux
 function! WrapForTmux(s)
