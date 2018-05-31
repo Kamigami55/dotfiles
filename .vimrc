@@ -73,7 +73,6 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 " Show git status of current file
 Plugin 'airblade/vim-gitgutter'
 
-
 call vundle#end()
 filetype plugin indent on
 " End Vundle
@@ -85,6 +84,11 @@ filetype plugin indent on
 
 " Share clipboard with Mac
 set clipboard=unnamed
+
+" search as characters are entered
+set incsearch
+" highlight search matches
+set hlsearch
 
 " Auto set paste when pasting something
 " also work with tmux
@@ -201,8 +205,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 " ---------- Tagbar settings ----------
 
-" <Ctrl-,>: Toggle Tabgbar panel
-nmap <C-m> :TagbarToggle<CR>
+" <Ctrl-k>: Toggle Tabgbar panel
+nmap <C-k> :TagbarToggle<CR>
 " Set pane width to 30 characters (Default: 40)
 let g:tagbar_width = 30
 
