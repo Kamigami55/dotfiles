@@ -1,18 +1,22 @@
 [user]
-	name = Kamigami55
-	email = samkami@icloud.com
+  name = Kamigami55
+  email = eason@easonchang.com
 [core]
-	editor = vim
-	pager = less -R
+  editor = vim
+  pager = less -R
 [alias]
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-    st = status
-    s = status -s
-    ch = checkout
-    co = commit
-    b = branch
-    br = branch
-    ps = push -u origin master
-	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  st = status
+  s = status -s
+  ch = checkout
+  co = commit
+  b = branch
+  br = branch
+  ps = push -u origin master
+  # Generate .gitignore file using gitignore.io
+  # Example: git ignore vim,linux,rails,python
+  ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
 [color]
-	ui = auto
+  ui = auto
+[branch]
+  autosetuprebase = always
