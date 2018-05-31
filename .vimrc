@@ -62,9 +62,10 @@ Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'easymotion/vim-easymotion'
 
 " Auto remove tailing whitespace
-"Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'ntpeters/vim-better-whitespace'
 
+" Show git status on nerdtree pane
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 
 call vundle#end()
