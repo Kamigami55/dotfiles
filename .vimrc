@@ -70,6 +70,9 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 " Auto set paste when pasting something
 Plugin 'roxma/vim-paste-easy'
 
+" Show git status of current file
+Plugin 'airblade/vim-gitgutter'
+
 
 call vundle#end()
 filetype plugin indent on
