@@ -212,3 +212,7 @@ let g:better_whitespace_enabled=1
 
 " Auto strip whitespace when save
 let g:strip_whitespace_on_save=1
+
+" ---------- vim-airline settings ----------
+" Enable powerline font patch
+let g:airline_powerline_fonts = 1
