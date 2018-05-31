@@ -67,6 +67,9 @@ Plugin 'ntpeters/vim-better-whitespace'
 " Show git status on nerdtree pane
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
+" Auto set paste when pasting something
+Plugin 'roxma/vim-paste-easy'
+
 
 call vundle#end()
 filetype plugin indent on
