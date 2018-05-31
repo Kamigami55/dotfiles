@@ -18,18 +18,43 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " =============== My plugins ===============
-Plugin 'vim-airline/vim-airline' " Use airline theme
-Plugin 'vim-airline/vim-airline-themes' " More airline theme
-Plugin 'tpope/vim-sensible' " Common vim settings
-Plugin 'scrooloose/nerdtree' " File system navigation
-Plugin 'danro/rename.vim' " Rename file
-Plugin 'scrooloose/nerdcommenter' " Comment out code
-Plugin 'Yggdroot/indentLine' " Show indent level
-Plugin 'jiangmiao/auto-pairs' " Auto insert parens pair
-Plugin 'ervandew/supertab' " Tab auto complete
-Plugin 'davidhalter/jedi-vim' " Python auto complete
-Plugin 'rizzatti/dash.vim' " Dash API browser integration (only for MAC)
 
+" Use airline theme
+Plugin 'vim-airline/vim-airline'
+" More airline theme
+Plugin 'vim-airline/vim-airline-themes'
+
+" Common vim settings
+Plugin 'tpope/vim-sensible'
+
+" File system navigation
+Plugin 'scrooloose/nerdtree'
+
+" Rename file
+Plugin 'danro/rename.vim'
+
+" Comment out code
+Plugin 'scrooloose/nerdcommenter'
+
+" Show indent level
+Plugin 'Yggdroot/indentLine'
+
+" Auto insert parens pair
+Plugin 'jiangmiao/auto-pairs'
+
+" Tab auto complete
+Plugin 'ervandew/supertab'
+
+" Python auto complete
+" Need vim with python support
+Plugin 'davidhalter/jedi-vim'
+
+" Dash API browser integration (only for MAC)
+Plugin 'rizzatti/dash.vim'
+
+" Display tags of current file code strucure
+" Need universal-ctags 
+Plugin 'majutsushi/tagbar'
 
 call vundle#end()            
 filetype plugin indent on
@@ -125,4 +150,10 @@ map <C-n> :NERDTreeToggle<CR>
 " Close vim if all other window closed except nerdtree panel
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" ---------- Tagbar settings ----------
+
+" <Ctrl-,>: Toggle Tabgbar panel
+map <C-m> :TagbarToggle<CR>
+" Set pane width to 30 characters (Default: 40)
+let g:tagbar_width = 30
 
