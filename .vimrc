@@ -112,14 +112,14 @@ highlight Comment ctermfg=033
 " Show line number
 set relativenumber
 set number
-highlight LineNr term=bold cterm=NONE ctermfg=251 ctermbg=236 gui=NONE guifg=DarkGrey guibg=NONE
+highlight LineNr term=bold cterm=NONE ctermfg=251 ctermbg=234 gui=NONE guifg=DarkGrey guibg=NONE
 highlight CursorLineNr cterm=bold ctermfg=Yellow ctermbg=088 gui=NONE guifg=Yellow
 
 " Show cursor line and column
 set cursorline
 set cursorcolumn
-highlight CursorLine   cterm=None ctermbg=234 ctermfg=NONE guibg=NONE guifg=White
-highlight CursorColumn cterm=None ctermbg=234 ctermfg=NONE guibg=NONE guifg=White
+highlight CursorLine   cterm=None ctermbg=235 ctermfg=NONE guibg=NONE guifg=White
+highlight CursorColumn cterm=None ctermbg=235 ctermfg=NONE guibg=NONE guifg=White
 
 " Show ruler at column 80, and every line after 120
 let &colorcolumn="80,".join(range(120,999),",")
@@ -216,3 +216,9 @@ let g:strip_whitespace_on_save=1
 " ---------- vim-airline settings ----------
 " Enable powerline font patch
 let g:airline_powerline_fonts = 1
+
+" ---------- vim-gitgutter settings ----------
+
+" Set sign column color
+let g:gitgutter_override_sign_column_highlight = 0
+highlight SignColumn ctermbg=235
