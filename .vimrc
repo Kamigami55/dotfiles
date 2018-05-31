@@ -56,6 +56,9 @@ Plugin 'rizzatti/dash.vim'
 " Need universal-ctags 
 Plugin 'majutsushi/tagbar'
 
+" Pair parentheses with the same color
+Plugin 'kien/rainbow_parentheses.vim'
+
 call vundle#end()            
 filetype plugin indent on
 " End Vundle
@@ -145,7 +148,7 @@ let g:indentLine_color_term = 239
 "autocmd vimenter * NERDTree
 
 " <Ctrl-N>: Toggle Nerdtree panel
-map <C-n> :NERDTreeToggle<CR>
+nmap <C-n> :NERDTreeToggle<CR>
 
 " Close vim if all other window closed except nerdtree panel
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -153,7 +156,15 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " ---------- Tagbar settings ----------
 
 " <Ctrl-,>: Toggle Tabgbar panel
-map <C-m> :TagbarToggle<CR>
+nmap <C-m> :TagbarToggle<CR>
 " Set pane width to 30 characters (Default: 40)
 let g:tagbar_width = 30
+
+" ---------- Ranbow_parentheses settings ----------
+
+" Enable ranbow_parentheses when start vim
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
