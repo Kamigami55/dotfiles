@@ -45,9 +45,8 @@ Plugin 'jiangmiao/auto-pairs'
 " Tab auto complete
 Plugin 'ervandew/supertab'
 
-" Python auto complete
-" Need vim with python support
-Plugin 'davidhalter/jedi-vim'
+" Python awesome plugin
+Plugin 'python-mode/python-mode'
 
 " Dash API browser integration (only for MAC)
 Plugin 'rizzatti/dash.vim'
@@ -59,12 +58,17 @@ Plugin 'majutsushi/tagbar'
 " Pair parentheses with the same color
 Plugin 'kien/rainbow_parentheses.vim'
 
+
+
+
 call vundle#end()            
 filetype plugin indent on
 " End Vundle
 
 
 " =============== Common settings ===============
+
+" ---------- General settings ----------
 
 " ---------- Code organize ----------
 
