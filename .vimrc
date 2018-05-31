@@ -52,16 +52,22 @@ Plugin 'python-mode/python-mode'
 Plugin 'rizzatti/dash.vim'
 
 " Display tags of current file code strucure
-" Need universal-ctags 
+" Need universal-ctags
 Plugin 'majutsushi/tagbar'
 
 " Pair parentheses with the same color
 Plugin 'kien/rainbow_parentheses.vim'
 
+" Quick navigation
+Plugin 'easymotion/vim-easymotion'
+
+" Auto remove tailing whitespace
+"Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'ntpeters/vim-better-whitespace'
 
 
 
-call vundle#end()            
+call vundle#end()
 filetype plugin indent on
 " End Vundle
 
@@ -91,7 +97,7 @@ syntax on
 set t_Co=256
 
 " Show tab character (notice there is a space at the end)
-set list lcs=tab:\|\ 
+set list lcs=tab:\|\
 
 " Set comment color to light blue
 highlight Comment ctermfg=033
@@ -100,7 +106,7 @@ highlight Comment ctermfg=033
 set relativenumber
 set number
 highlight LineNr term=bold cterm=NONE ctermfg=251 ctermbg=236 gui=NONE guifg=DarkGrey guibg=NONE
-highlight CursorLineNr cterm=bold ctermfg=Yellow ctermbg=088 gui=NONE guifg=Yellow 
+highlight CursorLineNr cterm=bold ctermfg=Yellow ctermbg=088 gui=NONE guifg=Yellow
 
 " Show cursor line and column
 set cursorline
@@ -172,3 +178,30 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
+" ---------- Easy_motion settings ----------
+
+" Disable default mappings
+let g:EasyMotion_do_mapping = 0
+
+" Jump to anywhere you want
+" `s{char}{char}{label}`
+map s <Plug>(easymotion-overwin-f2)
+
+" Turn on Case Insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" Enable JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
+" Enable WB motions: Word motions
+map <Leader>w <Plug>(easymotion-w)
+map <Leader>b <Plug>(easymotion-b)
+
+" ---------- vim-better-whitespace settings ----------
+
+" Enable whitespace highlighting
+let g:better_whitespace_enabled=1
+
+" Auto strip whitespace when save
+let g:strip_whitespace_on_save=1
