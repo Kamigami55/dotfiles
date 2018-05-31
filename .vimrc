@@ -68,7 +68,7 @@ Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 " Auto set paste when pasting something
-Plugin 'roxma/vim-paste-easy'
+"Plugin 'roxma/vim-paste-easy'
 
 " Show git status of current file
 Plugin 'airblade/vim-gitgutter'
@@ -82,6 +82,32 @@ filetype plugin indent on
 " =============== Common settings ===============
 
 " ---------- General settings ----------
+
+" Auto set paste when pasting something
+" also work with tmux
+function! WrapForTmux(s)
+  if !exists('$TMUX')
+    return a:s
+  endif
+
+  let tmux_start = "\<Esc>Ptmux;"
+  let tmux_end = "\<Esc>\\"
+
+  return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
+endfunction
+
+let &t_SI .= WrapForTmux("\<Esc>[?2004h")
+let &t_EI .= WrapForTmux("\<Esc>[?2004l")
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+
 
 " ---------- Code organize ----------
 
@@ -222,3 +248,15 @@ let g:airline_powerline_fonts = 1
 " Set sign column color
 let g:gitgutter_override_sign_column_highlight = 0
 highlight SignColumn ctermbg=235
+
+" ---------- python-mode ----------
+
+" Disable rope
+let g:pymode_rope = 0
+
+" Disable completion
+let g:pymode_rope_completion = 0
+
+" Auto close pylint pane when vim close
+autocmd WinEnter * if winnr('$') == 1 && ! empty(&buftype) && ! &modified | quit | endif
+
