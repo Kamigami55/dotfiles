@@ -1,11 +1,12 @@
 # dotfiles
 My unix config files :heart:
 
-- Shell: **zsh**
-- Zsh plugin manager: **antigen**
-- Editor: **vim**
-- Vim plugin manager: **Vundle**
-- Terminal mutiplexer: **tmux**
+- Shell: **[zsh](https://github.com/zsh-users/zsh)**
+- Zsh plugin manager: **[antigen](https://github.com/zsh-users/antigen)**
+- Editor: **[vim](https://github.com/vim/vim)**
+- Vim plugin manager: **[vim-plug](https://github.com/junegunn/vim-plug)**
+- Terminal mutiplexer: **[tmux](https://github.com/tmux/tmux)**
+- Tmux plugin manager: **[tpm](https://github.com/tmux-plugins/tpm)**
 
 ## Install
 
@@ -18,36 +19,22 @@ cd dotfiles
 
 不過還有一些安裝步驟尚未自動化，需要手動操作：
 
-git submodule要自己init、update
-```
-git submodule init
-git submodule update
-```
 
-vim vundle要自己下PluginInstall
+vim編輯器我用**vim-plug**來管理套件，需要手動下指令來安裝套件：
+
 ```
 vim
-:PluginInstall
+:PlugInstall
 ```
 
-tmux要手動安裝
+tmux我使用**tpm**來管理套件，也需要手動下指令來安裝套件（注意**a,I**大小寫）：
+
 ```
 tmux
-<prefix> + <I>
+<Ctrl+a> + <I>
 ```
 
-要手動切換到zsh
-```
-chsh -s /usr/bin/zsh
-```
-
-並且下次使用zsh時會自動安裝zsh plugin
-
-而且尚未測試過重複執行./install.sh會發生什麼事，以及當下環境已有一些.rc設定時，是否會衝突
-
-建議只在全新的環境安裝我的這些dotfiles
-
-有空再來讓這些變自動化
+而zsh的plugin會在下次使用zsh時自動安裝
 
 ## Uninstall
 
