@@ -16,7 +16,10 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-sensible'
 
 " File system navigation
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+
+" Show git status on nerdtree pane
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 
 " Rename file
 Plug 'danro/rename.vim'
@@ -41,7 +44,7 @@ Plug 'rizzatti/dash.vim'
 
 " Display tags of current file code strucure
 " Need universal-ctags
-Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 
 " Pair parentheses with the same color
 Plug 'kien/rainbow_parentheses.vim'
@@ -51,9 +54,6 @@ Plug 'easymotion/vim-easymotion'
 
 " Auto remove tailing whitespace
 Plug 'ntpeters/vim-better-whitespace'
-
-" Show git status on nerdtree pane
-Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Show git status of current file
 Plug 'airblade/vim-gitgutter'
@@ -117,6 +117,9 @@ set tabstop=2
 set expandtab
 set autoindent
 
+" Disable folding function
+set nofoldenable
+
 " ---------- Display ----------
 
 " Syntax highlight
@@ -177,9 +180,8 @@ let mapleader=","
 
 " ---------- IndentLine settings ----------
 
-" Set indent color to gray
+" Set indent marker color to gray
 let g:indentLine_color_term = 239
-
 
 " ---------- Nerdtree settings ----------
 
