@@ -31,7 +31,7 @@ then
     fi
 fi
 
-# Install tmux  if not installed
+# Install tmux if not installed
 if [ $(dpkg-query -W -f='${Status}' tmux 2>/dev/null | grep -c "ok installed") == 0 ]
 then
     if [[ "$OSTYPE" == "linux-gnueabihf" ]] # For raspbien
@@ -64,5 +64,25 @@ do
   echo "Create soft link: '$target'"
 done
 
-echo "Succesfully install dotfiles"
 
+# Init git submodules for tpm(tmux plugin manager)
+echo "Init git submodule(for tmux plugin manager)..."
+git submodule init
+git submodule update
+
+# Prompt to change default shell to zsh
+zshPath=$(which zsh)
+echo -n "Do you want to change default shell to $zshPath (will need password) (Y/n)? "
+read answer
+if [ "$answer" != "${answer#[Nn]}"  ] ;then
+  # No, do nothing
+  echo "Leave default shell as $SHELL"
+else
+  # Yes, change shell to /usr/bin/zsh
+  chsh -s $zshPath
+  echo "Your previous shell '$SHELL' has changed to '$zshPath'"
+  echo "Re-login to apply changes"
+fi
+
+# Installation done!
+echo "Succesfully install dotfiles"
