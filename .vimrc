@@ -67,11 +67,11 @@ Plugin 'ntpeters/vim-better-whitespace'
 " Show git status on nerdtree pane
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
-" Auto set paste when pasting something
-"Plugin 'roxma/vim-paste-easy'
-
 " Show git status of current file
 Plugin 'airblade/vim-gitgutter'
+
+" Undo branch tree
+Plugin 'mbbill/undotree'
 
 call vundle#end()
 filetype plugin indent on
@@ -256,7 +256,7 @@ let g:airline_powerline_fonts = 1
 let g:gitgutter_override_sign_column_highlight = 0
 highlight SignColumn ctermbg=235
 
-" ---------- python-mode ----------
+" ---------- python-mode settings ----------
 
 " Disable rope
 let g:pymode_rope = 0
@@ -264,6 +264,23 @@ let g:pymode_rope = 0
 " Disable completion
 let g:pymode_rope_completion = 0
 
+" <Ctrl-p>: Perform pylint check
+nmap <C-p> :PymodeLint<CR>
+
+" Do not auto open pylint window (default: enabled)
+let g:pymode_lint_cwindow = 0
+
 " Auto close pylint pane when vim close
 autocmd WinEnter * if winnr('$') == 1 && ! empty(&buftype) && ! &modified | quit | endif
 
+" ---------- Undotree settings ----------
+
+" <Ctrl-u>: Toggle undotree pane
+nnoremap <C-u> :UndotreeToggle<cr>
+
+" Enable persistent undo
+" Dir at ~/.vim-undodir/
+if has("persistent_undo")
+  set undodir=~/.vim-undodir/
+  set undofile
+endif
