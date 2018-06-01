@@ -1,6 +1,8 @@
 /.tmux/plugins/
 /.tmux/resurrect/
 /.vim/bundle/
+/.vim/view/
+/.vim/plugged/
 *.local
 
 

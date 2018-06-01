@@ -1,81 +1,70 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" Auto install Vundle
-let iCanHazVundle=1
-let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
-if !filereadable(vundle_readme)
-  echo "Installing Vundle.."
-  echo ""
-  silent !mkdir -p ~/.vim/bundle
-  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-  let iCanHazVundle=0
-endif
 
-" Init Vundle
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
+" Init vim-plug plugin manager
+call plug#begin('~/.vim/plugged')
 
 " =============== My plugins ===============
 
 " Use airline theme
-Plugin 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
 " More airline theme
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline-themes'
 
 " Common vim settings
-Plugin 'tpope/vim-sensible'
+Plug 'tpope/vim-sensible'
 
 " File system navigation
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 
 " Rename file
-Plugin 'danro/rename.vim'
+Plug 'danro/rename.vim'
 
 " Comment out code
-Plugin 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 
 " Show indent level
-Plugin 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine'
 
 " Auto insert parens pair
-Plugin 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
 
 " Tab auto complete
-Plugin 'ervandew/supertab'
+Plug 'ervandew/supertab'
 
 " Python awesome plugin
-Plugin 'python-mode/python-mode'
+Plug 'python-mode/python-mode'
 
 " Dash API browser integration (only for MAC)
-Plugin 'rizzatti/dash.vim'
+Plug 'rizzatti/dash.vim'
 
 " Display tags of current file code strucure
 " Need universal-ctags
-Plugin 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
 
 " Pair parentheses with the same color
-Plugin 'kien/rainbow_parentheses.vim'
+Plug 'kien/rainbow_parentheses.vim'
 
 " Quick navigation
-Plugin 'easymotion/vim-easymotion'
+Plug 'easymotion/vim-easymotion'
 
 " Auto remove tailing whitespace
-Plugin 'ntpeters/vim-better-whitespace'
+Plug 'ntpeters/vim-better-whitespace'
 
 " Show git status on nerdtree pane
-Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Show git status of current file
-Plugin 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 
 " Undo branch tree
-Plugin 'mbbill/undotree'
+Plug 'mbbill/undotree'
 
-call vundle#end()
+" End vim-plug
+call plug#end()
+
 filetype plugin indent on
-" End Vundle
 
 
 " =============== Common settings ===============
