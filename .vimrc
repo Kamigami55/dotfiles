@@ -37,7 +37,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'ervandew/supertab'
 
 " Python awesome plugin
-Plug 'python-mode/python-mode'
+Plug 'python-mode/python-mode', { 'branch': 'develop' }
 
 " Dash API browser integration (only for MAC)
 Plug 'rizzatti/dash.vim'
@@ -165,6 +165,9 @@ nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
 " <F4>: Toggle line number display
 map <F4> : set nu!<BAR>set nonu?<CR>
 
+" <esc><esc>: clear search highlight after search
+nmap <esc><esc> :noh<return>
+
 " ---------- File format ----------
 
 " syntax highlight for .ejs as .html
@@ -260,6 +263,9 @@ nmap <C-p> :PymodeLint<CR>
 
 " Do not auto open pylint window (default: enabled)
 let g:pymode_lint_cwindow = 0
+
+" Set python checker to python3
+let g:pymode_python = 'python3'
 
 " Auto close pylint pane when vim close
 autocmd WinEnter * if winnr('$') == 1 && ! empty(&buftype) && ! &modified | quit | endif
