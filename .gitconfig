@@ -4,6 +4,7 @@
 [core]
   editor = vim
   pager = less -R
+	autocrlf = input
 [alias]
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all
   st = status
@@ -12,7 +13,9 @@
   co = commit
   b = branch
   br = branch
-  ps = push -u origin master
+  ps = push
+  fe = fetch
+  pu = pull
   # Generate .gitignore file using gitignore.io
   # Example: git ignore vim,linux,rails,python
   ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
@@ -20,3 +23,5 @@
   ui = auto
 [branch]
   autosetuprebase = always
+[credential]
+	helper = store --file ./credentials.csv
