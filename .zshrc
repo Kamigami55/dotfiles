@@ -50,8 +50,8 @@ pkgs=("")
 export TMUX_THEME='powerline/block/orange'
 
 # Load local machine settings from .zshrc.local
-[ -f .zshrc.local ] && source .zshrc.local
-
+ZSHRC_LOCAL="$HOME/.zshrc.local"
+[ -f "$ZSHRC_LOCAL" ] && source "$ZSHRC_LOCAL"
 
 # ===============
 # Appearence (User Interface)
