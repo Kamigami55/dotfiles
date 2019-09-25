@@ -1,6 +1,6 @@
 [user]
-  name = Kamigami55
-  email = eason@easonchang.com
+	name = Kamigami55
+	email = eason@easonchang.com
 [core]
   editor = vim
   pager = less -R

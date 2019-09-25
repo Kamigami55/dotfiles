@@ -37,10 +37,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'ervandew/supertab'
 
 " Python awesome plugin
-Plug 'python-mode/python-mode', { 'branch': 'develop' }
-
-" Dash API browser integration (only for MAC)
-Plug 'rizzatti/dash.vim'
+"Plug 'python-mode/python-mode', { 'branch': 'develop' }
 
 " Display tags of current file code strucure
 " Need universal-ctags

@@ -41,7 +41,6 @@ antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 
-
 # ===============
 # Load local configs from .zshrc.local
 # ===============
@@ -50,7 +49,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 pkgs=("")
 export TMUX_THEME='powerline/block/orange'
 
-# Load local machine settings from .zshrc.local 
+# Load local machine settings from .zshrc.local
 [ -f .zshrc.local ] && source .zshrc.local
 
 
@@ -80,10 +79,24 @@ antigen theme https://github.com/caiogondim/bullet-train-oh-my-zsh-theme bullet-
 # User aliases
 # ===============
 
-alias rake="noglob bundle exec rake"
+# Basic
 alias "cd.."="cd .."
+
+# Ruby
+alias rake="noglob bundle exec rake"
+
+# Docker
 alias "dcc"="docker-compose"
 
+# Yarn
+alias ys='yarn start'
+alias yb='yarn build'
+alias ybt='yarn build:test'
+alias ybp='yarn build:production'
+alias yt='yarn test'
+
+# Tmux
+alias tma='tmux a'
 
 # ===============
 # Active some modules
@@ -96,6 +109,39 @@ if containsElement "rbenv" "${pkgs[@]}"; then
   eval "$(rbenv init -)"
 fi
 
+# Active nvm if needed (config in .zshrc.local)
+if containsElement "nvm" "${pkgs[@]}"; then
+  # TODO: only tested in MacOSX, and nvm was installed by brew
+  # other platform may cause error
+  #source /usr/local/opt/nvm/nvm.sh
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+  # Auto switch node version by nvm when enter directory that contains .nvmrc
+  # place this after nvm initialization!
+  autoload -U add-zsh-hook
+  load-nvmrc() {
+    local node_version="$(nvm version)"
+    local nvmrc_path="$(nvm_find_nvmrc)"
+
+    if [ -n "$nvmrc_path" ]; then
+      local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+      if [ "$nvmrc_node_version" = "N/A" ]; then
+        nvm install
+      elif [ "$nvmrc_node_version" != "$node_version" ]; then
+        nvm use
+      fi
+    elif [ "$node_version" != "$(nvm version default)" ]; then
+      echo "Reverting to nvm default version"
+      nvm use default
+    fi
+  }
+  add-zsh-hook chpwd load-nvmrc
+  load-nvmrc
+fi
 
 # Apply all Antigen settings (should be places in the very bottom of .zshrc)
 antigen apply
+
