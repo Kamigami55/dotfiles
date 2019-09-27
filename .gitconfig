@@ -25,3 +25,5 @@
   autosetuprebase = always
 [credential]
 	helper = store --file ./credentials.csv
+[push]
+	default = simple
