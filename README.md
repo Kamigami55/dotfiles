@@ -79,6 +79,16 @@ https://github.com/wting/autojump#os-x
 brew install autojump
 ```
 
+## Advanced configuration
+
+Create .zshrc.local to set machine local configs
+
+Like: Enabling nvm, Set prombt background color for this machine
+
+```
+cp .zshrc.local.example .zshrc.local
+```
+
 而zsh的plugin會在下次使用zsh時自動安裝
 
 ## Uninstall
