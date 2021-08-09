@@ -88,15 +88,35 @@ alias rake="noglob bundle exec rake"
 # Docker
 alias "dcc"="docker-compose"
 
+# NPM
+alias ns='npm start'
+alias ni='npm install'
+alias nci='npm ci'
+alias nd='npm run dev'
+alias nb='npm run build'
+
 # Yarn
 alias ys='yarn start'
 alias yb='yarn build'
 alias ybt='yarn build:test'
 alias ybp='yarn build:production'
 alias yt='yarn test'
+alias yd='yarn dev'
+alias yst='yarn storybook'
+alias ya='yarn add'
+alias yad='yarn add --dev'
+alias yr='yarn remove'
+alias ydp='yarn deploy'
+alias ync='yarn new-component'
+
+# Gatsby
+alias gd='gatsby develop'
 
 # Tmux
 alias tma='tmux a'
+
+# Open in webstorm
+alias webstorm='open -na "WebStorm.app" --args "$@"'
 
 # ===============
 # Active some modules
@@ -145,3 +165,6 @@ fi
 # Apply all Antigen settings (should be places in the very bottom of .zshrc)
 antigen apply
 
+
+#autoload -U +X bashcompinit && bashcompinit
+#complete -o nospace -C /usr/local/bin/terraform terraform

@@ -1,6 +1,6 @@
 [user]
-	name = Kamigami55
-	email = eason@easonchang.com
+	name = Eason Y Chang (RD-TW)
+	email = eason_y_chang@trendmicro.com
 [core]
   editor = vim
   pager = less -R
@@ -24,6 +24,8 @@
 [branch]
   autosetuprebase = always
 [credential]
-	helper = store --file ./credentials.csv
+	helper = osxkeychain
 [push]
 	default = simple
+[init]
+	defaultBranch = main
