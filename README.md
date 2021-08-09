@@ -40,8 +40,7 @@ https://github.com/Homebrew/homebrew-cask-fonts
 
 ```
 brew tap homebrew/cask-fonts
-brew install svn
-brew install font-source-code-pro-for-powerline
+brew install font-menlo-for-powerline
 ```
 
 Then change font of shell (in my case iTerms2) to **Source Code Pro for Powerline**
