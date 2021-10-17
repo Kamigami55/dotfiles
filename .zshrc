@@ -65,11 +65,11 @@ BULLETTRAIN_PROMPT_ORDER=(
 	status
 )
 
-# Set prompt comtext background color (config in .zshrc.local, default is Red)
+# Set prompt comtext background color (config in .zshrc.local, default is Magenta)
 if (( ${+CONTEXT_BG_COLOR} )); then
   BULLETTRAIN_CONTEXT_BG=$CONTEXT_BG_COLOR
 else
-  BULLETTRAIN_CONTEXT_BG=red
+  BULLETTRAIN_CONTEXT_BG=magenta
 fi
 
 # Use theme: bullet-train
