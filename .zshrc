@@ -96,6 +96,7 @@ alias nd='npm run dev'
 alias nb='npm run build'
 
 # Yarn
+alias y='yarn'
 alias ys='yarn start'
 alias yb='yarn build'
 alias ybt='yarn build:test'
