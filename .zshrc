@@ -33,7 +33,7 @@ antigen bundle pip
 antigen bundle pyenv
 antigen bundle docker
 antigen bundle gem
-antigen bundle osx
+antigen bundle macos
 antigen bundle sudo
 antigen bundle tmux
 antigen bundle colored-man-pages
