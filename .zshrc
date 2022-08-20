@@ -105,6 +105,7 @@ alias yb='yarn build'
 alias ybt='yarn build:test'
 alias ybp='yarn build:production'
 alias yt='yarn test'
+alias ytw='yarn test:watch'
 alias yd='yarn dev'
 alias yde='yarn develop'
 alias yst='yarn storybook'
@@ -114,6 +115,20 @@ alias yr='yarn remove'
 alias ydp='yarn deploy'
 alias ync='yarn new-component'
 alias yc='yarn cypress'
+
+# pnpm
+alias pn="pnpm"
+alias pi="pnpm install"
+alias pd="pnpm dev"
+alias pa="pnpm add"
+alias pb='pnpm build'
+alias pad="pnpm add --save-dev"
+alias pr="pnpm remove"
+alias pst='pnpm storybook'
+alias pnc='pnpm new-component'
+
+# Tauri
+alias ptd="pnpm tauri dev"
 
 # Gatsby
 alias gd='gatsby develop'
