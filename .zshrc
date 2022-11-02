@@ -144,6 +144,13 @@ alias webstorm='open -na "WebStorm.app" --args "$@"'
 # Active some modules
 # ===============
 
+# Active pyenv if needed (config in .zshrc.local)
+if containsElement "pyenv" "${pkgs[@]}"; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init --path)"
+fi
+
 # Active rbenv if needed (config in .zshrc.local)
 if containsElement "rbenv" "${pkgs[@]}"; then
   export PATH="$HOME/.rbenv/bin:$PATH"
