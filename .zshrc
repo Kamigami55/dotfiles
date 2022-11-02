@@ -194,6 +194,16 @@ fi
 # Active gvm if needed (config in .zshrc.local)
 if containsElement "gvm" "${pkgs[@]}"; then
   [[ -s "/Users/eason_y_chang/.gvm/scripts/gvm" ]] && source "/Users/eason_y_chang/.gvm/scripts/gvm"
+
+  _change_go_version() {
+    if [ -f "go.mod" ]; then
+      # local version=(`grep -Po "^go \K([0-9\.]*)$" go.mod`)
+      local version=(`perl -nle'print $& while m{^go \K([0-9\.]*)$}g' go.mod`)
+      gvm use ${version}
+    fi
+  }
+  add-zsh-hook chpwd _change_go_version
+  _change_go_version
 fi
 
 # Apply all Antigen settings (should be places in the very bottom of .zshrc)
