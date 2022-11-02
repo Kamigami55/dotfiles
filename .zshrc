@@ -126,6 +126,7 @@ alias pad="pnpm add --save-dev"
 alias pr="pnpm remove"
 alias pst='pnpm storybook'
 alias pnc='pnpm new-component'
+alias pnx="pnpm nx"
 
 # Tauri
 alias ptd="pnpm tauri dev"
