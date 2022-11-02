@@ -191,6 +191,11 @@ if containsElement "nvm" "${pkgs[@]}"; then
   load-nvmrc
 fi
 
+# Active gvm if needed (config in .zshrc.local)
+if containsElement "gvm" "${pkgs[@]}"; then
+  [[ -s "/Users/eason_y_chang/.gvm/scripts/gvm" ]] && source "/Users/eason_y_chang/.gvm/scripts/gvm"
+fi
+
 # Apply all Antigen settings (should be places in the very bottom of .zshrc)
 antigen apply
 
