@@ -4,5 +4,5 @@
 # Store my configs differ from each local machine
 
 export CONTEXT_BG_COLOR=cyan
-export pkgs=("rbenv")
+export pkgs=("rbenv" "pyenv" "nvm" "gvm")
 export TMUX_THEME='powerline/double/cyan'
