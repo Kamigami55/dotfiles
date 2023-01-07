@@ -27,10 +27,10 @@ antigen use oh-my-zsh
 
 # My Bundles
 antigen bundle git
-antigen bundle pip
-antigen bundle pyenv
+#antigen bundle pip
+#antigen bundle pyenv
 antigen bundle docker
-antigen bundle gem
+#antigen bundle gem
 antigen bundle macos
 antigen bundle sudo
 antigen bundle tmux
