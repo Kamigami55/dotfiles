@@ -191,6 +191,12 @@ if containsElement "nvm" "${pkgs[@]}"; then
   load-nvmrc
 fi
 
+# Active fnm if needed (config in .zshrc.local)
+if containsElement "fnm" "${pkgs[@]}"; then
+  # https://github.com/Schniz/fnm#shell-setup
+  eval "$(fnm env --use-on-cd)"
+fi
+
 # Active gvm if needed (config in .zshrc.local)
 if containsElement "gvm" "${pkgs[@]}"; then
   [[ -s "/Users/eason_y_chang/.gvm/scripts/gvm" ]] && source "/Users/eason_y_chang/.gvm/scripts/gvm"
